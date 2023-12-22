@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Добавление товара</title>
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h1>Добавление товара</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Название товара</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Введите название" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Цена товара</label>
+            <input type="number" class="form-control" name="price" id="price" placeholder="Введите цену" required>
+        </div>
+        <div class="mb-3">
+            <label for="text" class="form-label">Описание товара</label>
+            <input type="text" class="form-control" name="text" id="text" placeholder="Описание товара" required>
+        </div>
+        <div class="mb-3">
+            <label for="image_url" class="form-label">URL изображения товара</label>
+            <input type="text" class="form-control" name="image_url" id="image_url" placeholder="URL изображения">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Категория</label>
+            <select class="form-control" name="category_id" id="category">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-success" type="submit">Добавить товар</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+<div class="text-center mt-5">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/115294fb-5943-4143-9d29-66595e13fbb5/ddwxr5s-3cb6326b-be15-455f-baa8-9db3637ef102.png/v1/fit/w_828,h_502/_g__hello___by_squishibear_ddwxr5s-414w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzYwIiwicGF0aCI6IlwvZlwvMTE1Mjk0ZmItNTk0My00MTQzLTlkMjktNjY1OTVlMTNmYmI1XC9kZHd4cjVzLTNjYjYzMjZiLWJlMTUtNDU1Zi1iYWE4LTlkYjM2MzdlZjEwMi5wbmciLCJ3aWR0aCI6Ijw9MTI1MyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.kWyMoSSCcxNvKBe8moAtAVD4uvqQXI1XKj96CPZVK2M" alt="Профиль" style="max-width: 50%; height: auto; border-radius: 5px;">
+            <h2 class="mt-3" style="font-family: 'Pacifico', cursive; color: #D10063;">Профиль пользователя</h2>
+</div>
+
+
+            <div class="card shadow-lg" style="background-color: #fff0f5; border-radius: 15px;">
+                <div class="card-body">
+                    <!-- Данные пользователя -->
+                    <h5 class="card-title" style="font-family: 'Pacifico', cursive; color: #D10063;">Данные пользователя</h5>
+                    <p class="card-text">Имя пользователя: {{ current_user.username }}</p>
+                    <p class="card-text">Email: {{ current_user.email }}</p>
+                </div>
+            </div>
+
+            <!-- История заказов -->
+            <div class="card shadow-lg mt-4" style="background-color: #fff0f5; border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'Pacifico', cursive; color: #D10063;">История заказов</h5>
+                    <div class="orders-container">
+                        {% for order in orders %}
+                            <div class="order my-2 p-3 d-flex justify-content-between align-items-center" style="background-color: #FFD1DC; border-radius: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                                <span style="font-weight: bold;">Заказ №{{ order.id }}</span>
+                                <a href="{{ url_for('order_details', order_id=order.id) }}" class="order-link" style="padding: 5px 15px; border-radius: 15px; background-color: #D10063; color: white; text-decoration: none; font-weight: bold;">Подробнее</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{{ url_for('logout') }}" class="btn btn-danger" style="border-radius: 10px;">Выйти</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

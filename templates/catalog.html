@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Каталог
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+  <div class="text-center mt-1">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d75a409d-97d9-49e2-9b61-de461744b9c2/d5zxo69-80b0c37b-4a00-46fd-8be3-e4d81fa4f7f4.png/v1/fit/w_600,h_581/candy_box_chibi_commission_by_yampuff_d5zxo69-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTgxIiwicGF0aCI6IlwvZlwvZDc1YTQwOWQtOTdkOS00OWUyLTliNjEtZGU0NjE3NDRiOWMyXC9kNXp4bzY5LTgwYjBjMzdiLTRhMDAtNDZmZC04YmUzLWU0ZDgxZmE0ZjdmNC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.0RsrzS5fRY15lQgQC88hOHpzKNYXyYHGVxoOYSWo0_E" alt="Sweet Tears Candy" style="max-width: 30%; height: auto;">
+    </div>
+    {% for category in categories %}
+    <div class="card mb-5" style="font-family: 'Pacifico', cursive; color: #D10063; margin-bottom: 30px;">
+        <div class="card-body">
+            <h2 style="margin-bottom: 20px;">{{ category.name }}</h2>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                {% for item in category.items %}
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <img src="{{ item.image_url }}" class="card-img-top" alt="{{ item.title }}" style="height: 200px; object-fit: contain;">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal" style="font-family: 'Open Sans', sans-serif; color: #333;">{{ item.title }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">{{ item.price }}<small class="text-body-secondary fw-light"> ₽</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li style="font-family: 'Open Sans', sans-serif; color: #333;">{{ item.text }}</li>
+                                </ul>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    {% if item.in_cart %}
+                                        <button class="btn btn-outline-primary btn-lg mx-3" onclick="updateQuantity('{{ url_for('update_cart', item_id=item.id, quantity=item.quantity_in_cart-1) }}')">-</button>
+                                        <span class="quantity h4 mx-3">{{ item.quantity_in_cart }}</span>
+                                        <button class="btn btn-outline-primary btn-lg mx-3" onclick="updateQuantity('{{ url_for('update_cart', item_id=item.id, quantity=item.quantity_in_cart+1) }}')">+</button>
+                                    {% else %}
+                                        <button class="btn btn-outline-primary btn-lg" onclick="addToCart('{{ url_for('add_to_cart', item_id=item.id) }}')">В корзину</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+<script>
+    function updateQuantity(url) {
+        fetch(url, {method: 'POST'})
+            .then(response => {
+                if(response.ok) {
+                    window.location.reload();
+                } else {
+                    alert("Ошибка при обновлении корзины");
+                }
+            })
+            .catch(error => console.error('Ошибка:', error));
+    }
+
+    function addToCart(url) {
+        fetch(url, {method: 'POST'})
+            .then(response => {
+                if(response.ok) {
+                    window.location.reload();
+                } else {
+                    alert("Ошибка при добавлении в корзину");
+                }
+            })
+            .catch(error => console.error('Ошибка:', error));
+    }
+</script>
+{% endblock %}

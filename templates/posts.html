@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Статьи
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h1 style="font-family: 'Pacifico', cursive; color: #D10063; text-align: center; margin-bottom: 30px;">Все статьи на сайте</h1>
+
+    {% if news|length > 0 %}
+        {% for i in news %}
+        <div class="card mb-4" style="background-color: #fff0f5; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <h2 style="font-family: 'Pacifico', cursive; color: #D10063;">{{ i.title }}</h2>
+                <p>{{ i.intro }}</p>
+                <p><b>Дата: {{ i.date.date() }}</b></p>
+                <a href="/posts/{{ i.id }}" class="btn btn-primary" style="background-color: #FFADD4; border: none;">Детальнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h2 style="font-family: 'Pacifico', cursive; color: #D10063; text-align: center;">У нас еще нет статей на сайте</h2>
+    {% endif %}
+</div>
+{% endblock %}
