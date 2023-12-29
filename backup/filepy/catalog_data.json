@@ -1,0 +1,136 @@
+[
+    {
+        "category_id": 1,
+        "category_name": "Конфеты",
+        "items": [
+            {
+                "id": 8,
+                "title": "Батончик шоколадный SNICKERS Лесной орех, 81г, Россия, 81 г",
+                "price": 49,
+                "isActive": true,
+                "quantity_in_cart": 5
+            },
+            {
+                "id": 9,
+                "title": "Батончик шоколадный MARS Max с нугой и карамелью, 81г, Россия, 81 г",
+                "price": 49,
+                "isActive": true,
+                "quantity_in_cart": 2
+            },
+            {
+                "id": 10,
+                "title": "Батончик шоколадный SNICKERS White, 81г, Россия, 81 г",
+                "price": 49,
+                "isActive": true,
+                "quantity_in_cart": 0
+            },
+            {
+                "id": 11,
+                "title": "Конфеты KONTI Золотая лилия, весовые, Россия",
+                "price": 350,
+                "isActive": true,
+                "quantity_in_cart": 1
+            },
+            {
+                "id": 12,
+                "title": "Конфеты СЛАВЯНКА Маленькое чудо сливочное, весовые, Россия",
+                "price": 539,
+                "isActive": true,
+                "quantity_in_cart": 0
+            },
+            {
+                "id": 13,
+                "title": "Конфеты KDV Крокант, весовые, Россия",
+                "price": 349,
+                "isActive": true,
+                "quantity_in_cart": 1
+            },
+            {
+                "id": 14,
+                "title": "Конфеты РАЙСКИЕ ОБЛАКА Ассорти суфле, весовые, Россия",
+                "price": 359,
+                "isActive": true,
+                "quantity_in_cart": 0
+            },
+            {
+                "id": 15,
+                "title": "Конфеты BORA-BORA Кокос, весовые, Россия",
+                "price": 429,
+                "isActive": true,
+                "quantity_in_cart": 0
+            },
+            {
+                "id": 16,
+                "title": "Конфеты СЛАВЯНКА Медунок с орехом, весовые, Россия",
+                "price": 349,
+                "isActive": true,
+                "quantity_in_cart": 0
+            }
+        ]
+    },
+    {
+        "category_id": 2,
+        "category_name": "Шоколадки",
+        "items": [
+            {
+                "id": 18,
+                "title": "Шоколад молочный MILKA, 85г, Болгария, 85 г",
+                "price": 68,
+                "isActive": true,
+                "quantity_in_cart": 0
+            },
+            {
+                "id": 19,
+                "title": "Шоколад молочный ALPEN GOLD с фундуком и изюмом, 85г, Россия, 85 г",
+                "price": 48,
+                "isActive": true,
+                "quantity_in_cart": 0
+            }
+        ]
+    },
+    {
+        "category_id": 3,
+        "category_name": "Тортики",
+        "items": []
+    },
+    {
+        "category_id": 4,
+        "category_name": "Мармеладки",
+        "items": []
+    },
+    {
+        "category_id": 5,
+        "category_name": "Пироженные",
+        "items": []
+    },
+    {
+        "category_id": 6,
+        "category_name": "Леденцы",
+        "items": []
+    },
+    {
+        "category_id": 7,
+        "category_name": "Сахарная вата",
+        "items": []
+    },
+    {
+        "category_id": 8,
+        "category_name": "Жевачки",
+        "items": []
+    },
+    {
+        "category_id": 9,
+        "category_name": "Пирожные",
+        "items": []
+    },
+    {
+        "category_id": 10,
+        "category_name": "Сладкие напитки",
+        "items": []
+    },
+    {
+        "category_id": 11,
+        "category_name": "Мороженое",
+        "items": []
+    }
+]
