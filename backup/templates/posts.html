@@ -15,7 +15,10 @@
                 <h2 style="font-family: 'Pacifico', cursive; color: #D10063;">{{ i.title }}</h2>
                 <p>{{ i.intro }}</p>
                 <p><b>Дата: {{ i.date.date() }}</b></p>
+
+                {% if current_user.is_authenticated and current_user.role == 'Администратор' %}
                 <a href="/posts/{{ i.id }}" class="btn btn-primary" style="background-color: #FFADD4; border: none;">Детальнее</a>
+                 {% endif %}
             </div>
         </div>
         {% endfor %}

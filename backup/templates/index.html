@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="jumbotron mt-5"
+                 style="background-color: #fff0f5; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+                <h1 class="display-4 text-center" style="font-family: 'Pacifico', cursive; color: #D10063;">Добро
+                    пожаловать в магазин сладостей "Sweet Tears"!</h1>
+                <p class="lead text-center" style="font-family: 'Open Sans', sans-serif; color: #333;">Сладости, которые
+                    заставят вас улыбнуться.</p>
+                <div class="text-center mt-1">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/32ac1c43-c950-4162-bff3-5af8dccdc81b/dftke12-c26ef9c0-35bf-4bfb-9900-39316c0e7ce9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMyYWMxYzQzLWM5NTAtNDE2Mi1iZmYzLTVhZjhkY2NkYzgxYlwvZGZ0a2UxMi1jMjZlZjljMC0zNWJmLTRiZmItOTkwMC0zOTMxNmMwZTdjZTkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.iLsOg5aE7buc4gITyysToKq83_qvsWjHuW8jDtsPHTo"
+                         alt="Привет, это магазин сладостей)" style="max-width: 30%; height: auto;">
+                </div>
+                <hr class="my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="mb-3 text-center" style="font-family: 'Pacifico', cursive; color: #d24d57;">
+                            Авторизация</h2>
+                        <form method="POST" action="{{ url_for('login') }}" style="padding: 0 15px;">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Пароль</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="{{ url_for('forgot_password') }}">Забыли пароль?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                    style="background-color: #FFAACC; border: none;">Войти
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="mb-3 text-center" style="font-family: 'Pacifico', cursive; color: #d24d57;">
+                            Регистрация</h2>
+                        <p class="text-center">Регистрация на сайте позволит быстро оформлять заказы, управлять заказами
+                            через личный кабинет, в полном объеме использовать возможности нашего интернет магазина.</p>
+                        <a class="btn btn-success btn-lg btn-block" href="{{ url_for('register') }}"
+                           style="background-color: #db7093; border: none;">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

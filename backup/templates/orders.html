@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Мои заказы</h2>
+    {% for order in orders %}
+    <div class="order">
+        <h3>Заказ №{{ order.id }}</h3>
+        <p>Дата заказа: {{ order.order_date }}</p>
+        <p>Сумма заказа: {{ order.total_price }} ₽</p>
+        <p>Статус: {{ order.status }}</p>
+        <ul>
+            {% for item in order.order_items %}
+            <li>{{ item.item.title }} - {{ item.quantity }} шт.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
